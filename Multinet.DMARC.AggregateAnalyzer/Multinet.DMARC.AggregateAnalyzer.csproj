@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>DMARC Aggregate Analyzer</Title>
+    <Company>Multinet Interactive AB</Company>
+    <RepositoryUrl>https://github.com/MultinetInteractiveOSS/dmarc-analyzer.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/MultinetInteractiveOSS/dmarc-analyzer</PackageProjectUrl>
+    <Description>A simple DMARC Aggregate Report parser</Description>
+    <Authors>chris.gardenberg</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
 </Project>

@@ -17,5 +17,8 @@ namespace Multinet.DMARC.AggregateAnalyzer.Schema
 
         [XmlElement("record")]
         public List<RecordType> Records { get; set; }
+
+        [XmlIgnore]
+        public ReportSummary ReportSummary { get; set; }
     }
 }

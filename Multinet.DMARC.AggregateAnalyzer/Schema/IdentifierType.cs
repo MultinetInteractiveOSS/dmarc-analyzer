@@ -2,7 +2,7 @@
 
 namespace Multinet.DMARC.AggregateAnalyzer.Schema
 {
-    public struct IdentifierType
+    public class IdentifierType
     {
         [XmlElement("envelope_to")]
         public string EnvelopeTo { get; set; }

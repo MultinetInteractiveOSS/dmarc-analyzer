@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace Multinet.DMARC.AggregateAnalyzer.Schema
 {
     /// <summary>This element contains DKIM and SPF results, uninterpreted with respect to DMARC.</summary>
-    public struct AuthResultType
+    public class AuthResultType
     {
         [XmlElement("dkim")]
         public List<DKIMAuthResultType> DKIM { get; set; }

@@ -3,7 +3,7 @@
 namespace Multinet.DMARC.AggregateAnalyzer.Schema
 {
     /// <summary>This element contains all the authentication results that were evaluated by the receiving system for the given set of messages.</summary>
-    public struct RecordType
+    public class RecordType
     {
         [XmlElement("row")]
         public RowType Row { get; set; }

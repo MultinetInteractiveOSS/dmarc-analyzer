@@ -3,7 +3,7 @@
 namespace Multinet.DMARC.AggregateAnalyzer.Schema
 {
     /// <summary>The DMARC policy that applied to the messages in this report.</summary>
-    public struct PolicyPublishedType
+    public class PolicyPublishedType
     {
         [XmlElement("domain")]
         public string Domain { get; set; }

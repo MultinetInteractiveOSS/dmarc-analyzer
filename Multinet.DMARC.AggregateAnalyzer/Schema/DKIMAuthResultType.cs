@@ -2,7 +2,7 @@
 
 namespace Multinet.DMARC.AggregateAnalyzer.Schema
 {
-    public struct DKIMAuthResultType
+    public class DKIMAuthResultType
     {
         [XmlElement("domain")]
         public string Domain { get; set; }

@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace Multinet.DMARC.AggregateAnalyzer.Schema
 {
     /// <summary>Taking into account everything else in the record, the results of applying DMARC.</summary>
-    public struct PolicyEvaluatedType
+    public class PolicyEvaluatedType
     {
         [XmlElement("disposition")]
         public DispositionType Disposition { get; set; }

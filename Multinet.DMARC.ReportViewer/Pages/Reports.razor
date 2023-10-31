@@ -1,0 +1,34 @@
+﻿@page "/reports"
+@using Microsoft.EntityFrameworkCore;
+@using Multinet.DMARC.Backend.Database;
+@inject ReportContext _context;
+<h3>Reports (@reports.Count)</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Report time</th>
+            <th>Domain</th>
+            <th>Mail volume</th>
+            <th>DMARC Compatible</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in reports)
+        {
+            <tr>
+                <td>@report.DateRangeBeginDateTime - @report.DateRangeEndDateTime</td>
+                <td>@report.DMARCReport.PolicyPublished.Domain</td>
+                <td align="right">@report.DMARCReport.ReportSummary.TotalVolume.ToString("n0")</td>
+                <td>@(report.DMARCReport.ReportSummary.DMARCVolume > 0.0m ? "Yes" : "No")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@code {
+    private List<Report> reports = new List<Report>();
+protected override async Task OnInitializedAsync()
+    {
+        reports = await _context.Reports.OrderByDescending(r => r.DateRangeBegin).ToListAsync();
+    }
+}

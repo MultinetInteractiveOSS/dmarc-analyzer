@@ -2,7 +2,7 @@
 
 namespace Multinet.DMARC.AggregateAnalyzer.Schema
 {
-    public struct SPFAuthResultType
+    public class SPFAuthResultType
     {
         [XmlElement("domain")]
         public string Domain { get; set; }

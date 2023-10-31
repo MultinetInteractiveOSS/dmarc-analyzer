@@ -2,7 +2,7 @@
 
 namespace Multinet.DMARC.AggregateAnalyzer.Schema
 {
-    public struct RowType
+    public class RowType
     {
         [XmlElement("source_ip")]
         public string SourceIp { get; set; }

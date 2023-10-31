@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace Multinet.DMARC.AggregateAnalyzer.Schema
 {
     /// <summary>Report generator metadata.</summary>
-    public struct ReportMetadataType
+    public class ReportMetadataType
     {
         [XmlElement("org_name")]
         public string OrganizationName { get; set; }
@@ -17,6 +17,6 @@ namespace Multinet.DMARC.AggregateAnalyzer.Schema
         [XmlElement("date_range")]
         public DateRangeType DateRange { get; set; }
         [XmlElement("error")]
-        public List<string> Error { get; set; }
+        public List<string> Error { get; set; } = new List<string>();
     }
 }

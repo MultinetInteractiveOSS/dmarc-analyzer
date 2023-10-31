@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace Multinet.DMARC.AggregateAnalyzer.Schema
 {
     /// <summary>The time range in UTC covered by messages in this report, specified in seconds since epoch.</summary>
-    public struct DateRangeType
+    public class DateRangeType
     {
         [XmlElement("begin")]
         public long Begin { get; set; }

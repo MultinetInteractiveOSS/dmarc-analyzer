@@ -30,14 +30,14 @@ namespace Multinet.DMARC.Backend.Database
                     e.DateRangeBegin,
                     e.DateRangeEnd,
                     e.Domain
-                });
+                }, "ReportId_Email_DateRangeBegin_DateRangeEnd_Domain");
 
-                entity.HasIndex(e => e.Domain);
+                entity.HasIndex(e => e.Domain, "Domain");
                 entity.HasIndex(e => new
                 {
                     e.DateRangeBegin,
                     e.DateRangeEnd
-                });
+                }, "DateRangeBegin_DateRangeEnd");
 
                 entity.Property(e => e.ReportId)
                     .HasColumnName("ReportId")
@@ -96,6 +96,7 @@ namespace Multinet.DMARC.Backend.Database
         public required long ForwarderVolume { get; set; }
         public required long UnknownVolume { get; set; }
         public required string ReportJson { get; set; }
+        public required string ReportRawData { get; set; }
         [NotMapped]
         public DMARCReport DMARCReport => System.Text.Json.JsonSerializer.Deserialize<DMARCReport>(ReportJson)!;
     }

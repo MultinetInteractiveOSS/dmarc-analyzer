@@ -91,7 +91,7 @@ internal class DMARCParserStore : MessageStore
             using var fr = new StreamReader(entry.Open());
             var xml = await fr.ReadToEndAsync();
             var report = Multinet.DMARC.AggregateAnalyzer.Parser.ParseXML(xml);
-            await storeReport(report);
+            await storeReport(report, xml);
         }
     }
 
@@ -104,10 +104,10 @@ internal class DMARCParserStore : MessageStore
         using var sr = new StreamReader(zip);
         var xml = await sr.ReadToEndAsync();
         var report = Multinet.DMARC.AggregateAnalyzer.Parser.ParseXML(xml);
-        await storeReport(report);
+        await storeReport(report, xml);
     }
 
-    async Task storeReport(DMARCReport report)
+    async Task storeReport(DMARCReport report, string reportXml)
     {
         var reportJson = JsonSerializer.Serialize(report);
 
@@ -134,13 +134,14 @@ internal class DMARCParserStore : MessageStore
             DMARCVolume = report.ReportSummary.DMARCVolume,
             ForwarderVolume = report.ReportSummary.ForwarderVolume,
             UnknownVolume = report.ReportSummary.UnknownVolume,
-            ReportJson = reportJson
+            ReportJson = reportJson,
+            ReportRawData = reportXml
         };
 
         _context.Reports.Add(_report);
 
         await _context.SaveChangesAsync();
 
-        _logger.LogDebug(reportJson);
+        _logger.LogDebug($"Report {report.ReportMetadata.ReportId} saved");
     }
 }

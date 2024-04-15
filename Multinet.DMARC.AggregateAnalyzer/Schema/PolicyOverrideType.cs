@@ -5,6 +5,8 @@ namespace Multinet.DMARC.AggregateAnalyzer.Schema
     /// <summary>Reasons that may affect DMARC disposition or execution thereof.</summary>
     public enum PolicyOverrideType
     {
+        [XmlEnum("")]
+        Empty,
         [XmlEnum("forwarded")]
         Forwarded,
         [XmlEnum("sampled_out")]

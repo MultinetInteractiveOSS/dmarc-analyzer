@@ -20,6 +20,8 @@ namespace Multinet.DMARC.AggregateAnalyzer.Schema
         [XmlEnum("temperror")]
         TempError,
         [XmlEnum("permerror")]
-        PermError
+        PermError,
+        [XmlEnum("unknown")]
+        Unknown
     }
 }

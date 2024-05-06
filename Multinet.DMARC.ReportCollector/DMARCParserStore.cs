@@ -109,7 +109,16 @@ internal class DMARCParserStore : MessageStore
 
     async Task storeReport(DMARCReport report, string reportXml)
     {
-        var reportJson = JsonSerializer.Serialize(report);
+        var reportJson = JsonSerializer.Serialize(report, new JsonSerializerOptions
+        {
+            NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals
+        });
+
+        if (report.ReportMetadata.DateRange == null)
+        {
+            _logger.LogWarning($"Report {report.ReportMetadata.ReportId} has no date range, skipping");
+            return;
+        }
 
         if (await _context.Reports.AnyAsync(r => r.ReportId == report.ReportMetadata.ReportId && r.Email == report.ReportMetadata.Email))
         {

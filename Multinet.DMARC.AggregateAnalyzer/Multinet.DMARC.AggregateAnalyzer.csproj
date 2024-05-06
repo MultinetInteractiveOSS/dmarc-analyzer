@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net7;net6</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net8;net6</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>DMARC Aggregate Analyzer</Title>
     <Company>Multinet Interactive AB</Company>

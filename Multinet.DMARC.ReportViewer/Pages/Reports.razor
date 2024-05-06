@@ -53,7 +53,7 @@
             {
                 <tr class="@(report.DMARCVolume == 0.0m ? "table-danger" : "")">
                     <td colspan="11">
-                        <pre style="max-height: 150px; overflow-y: scroll;">@JsonSerializer.Serialize(report.DMARCReport, new JsonSerializerOptions { WriteIndented = true })</pre>
+                        <pre style="max-height: 150px; overflow-y: scroll;">@JsonSerializer.Serialize(report.DMARCReport, new JsonSerializerOptions { WriteIndented = true, NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals })</pre>
                     </td>
                 </tr>
             }
